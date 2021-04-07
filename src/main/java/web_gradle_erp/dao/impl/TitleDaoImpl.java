@@ -95,10 +95,10 @@ public class TitleDaoImpl implements TitleDao {
 	}
 
 	@Override
-	public int deleteTitle(int No) {
+	public int deleteTitle(int titleNo) {
 		String sql = "delete from title where titleNo = ?";
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setInt(1, No);
+			pstmt.setInt(1, titleNo);
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
