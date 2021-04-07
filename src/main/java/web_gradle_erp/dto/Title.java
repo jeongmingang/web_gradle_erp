@@ -8,7 +8,6 @@ public class Title {
 	}
 
 	public Title(int titleNo) {
-		super();
 		this.titleNo = titleNo;
 	}
 
@@ -36,7 +35,7 @@ public class Title {
 
 	@Override
 	public String toString() {
-		return String.format("Title [titleNo=%s, titleName=%s]", titleNo, titleName);
+		return String.format("[titleNo=%s, titleName=%s]", titleNo, titleName);
 	}
 
 	
