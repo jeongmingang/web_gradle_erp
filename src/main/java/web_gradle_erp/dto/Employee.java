@@ -6,27 +6,29 @@ public class Employee {
 	private int empNo;
 	private String empName;
 	private Title title;
-	private Employee manager; //외래키
+	private Employee manager;
 	private int salary;
-	private Department dept; //외래키
-	private Date hiredate;
-	
+	private Department dept;
+	private Date hireDate;
+
+	public Employee() {
+
+	}
+
 	public Employee(int empNo) {
 		this.empNo = empNo;
 	}
 	
 	public Employee(int empNo, String empName, Title title, Employee manager, int salary, Department dept,
-			Date hiredate) {
-		super();
+			Date hireDate) {
 		this.empNo = empNo;
 		this.empName = empName;
 		this.title = title;
 		this.manager = manager;
 		this.salary = salary;
 		this.dept = dept;
-		this.hiredate = hiredate;
+		this.hireDate = hireDate;
 	}
-
 
 	public int getEmpNo() {
 		return empNo;
@@ -78,17 +80,17 @@ public class Employee {
 
 	
 	public Date getHiredate() {
-		return hiredate;
+		return hireDate;
 	}
 
-	public void setHiredate(Date hiredate) {
-		this.hiredate = hiredate;
+	public void setHiredate(Date hireDate) {
+		this.hireDate = hireDate;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Employee [empNo=%s, empName=%s, title=%s, manager=%s, salary=%s, dept=%s, hiredate=%s]",
-				empNo, empName, title, manager, salary, dept, hiredate);
+		return String.format("[empNo=%s, empName=%s, title=%s, manager=%s, salary=%s, dept=%s, hireDate=%s]",
+				empNo, empName, title, manager, salary, dept, hireDate);
 	}
 
 }

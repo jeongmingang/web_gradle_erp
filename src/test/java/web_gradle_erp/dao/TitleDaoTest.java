@@ -33,6 +33,7 @@ public class TitleDaoTest {
 
 	@After
 	public void tearDown() throws Exception {
+		System.out.println();
 	}
 
 	@Test
@@ -47,22 +48,39 @@ public class TitleDaoTest {
 
 	@Test
 	public void test04SelectTitleByNo() {
-		
+		System.out.printf("%s()%n", "test04SelectTitleByNo");
+		Title title = new Title(5);
+		Title searchTitle = dao.selectTitleByNo(title);
+		Assert.assertNotNull(searchTitle);
+//		System.out.println(searchTitle);
+		System.out.println("searchTitle : " + searchTitle);
 	}
 
 	@Test
 	public void test02InsertTitle() {
-	
+		System.out.printf("%s()%n", "test02InsertTitle");
+		Title newTitle = new Title(6, "인턴");	
+		int res = dao.insertTitle(newTitle);
+		Assert.assertEquals(1, res);
+		System.out.println(dao.selectTitleByNo(newTitle));
 	}
 
 	@Test
-	public void test3UpdateTitle() {
-		
+	public void test03UpdateTitle() {
+		System.out.printf("%s()%n", "test03UpdateTitle");
+		Title updateTitle = new Title(6, "계약직");	
+		int res = dao.updateTitle(updateTitle);
+		Assert.assertEquals(1, res);
+		System.out.println(dao.selectTitleByNo(updateTitle));
 	}
 
 	@Test
 	public void test05DeleteTitle() {
-		
+		System.out.printf("%s()%n", "test05DeleteTitle");
+		Title delTitle = new Title(6);
+		int res = dao.deleteTitle(delTitle);
+		Assert.assertEquals(1, res);
+		dao.selectTitleByAll().stream().forEach(System.out::println);
 	}
 
 }

@@ -53,7 +53,7 @@ public class TitleDaoImpl implements TitleDao {
 
 	@Override
 	public Title selectTitleByNo(Title title) {
-		String sql = "select titleNo, titleName from title where tno = ?";
+		String sql = "select titleNo, titleName from title where titleNo = ?";
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setInt(1, title.getTitleNo());
 			try (ResultSet rs = pstmt.executeQuery()) {
@@ -95,10 +95,10 @@ public class TitleDaoImpl implements TitleDao {
 	}
 
 	@Override
-	public int deleteTitle(int titleNo) {
+	public int deleteTitle(Title title) {
 		String sql = "delete from title where titleNo = ?";
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setInt(1, titleNo);
+			pstmt.setInt(1, title.getTitleNo());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

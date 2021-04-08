@@ -10,6 +10,6 @@ public interface DepartmentDao {
 	
 	int insertDepartment(Department department);
 	int updateDepartment(Department department);
-	int deleteDepartment(int deptNo);
+	int deleteDepartment(Department department);
 
 }
